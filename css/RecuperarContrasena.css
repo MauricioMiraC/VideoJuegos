@@ -1,0 +1,149 @@
+:root {
+    --primary-color: #2a75bb;  
+    --secondary-color: #ffcb05; 
+    --dark-color: #1a1a2e;     
+    --accent-color: #e94560;   
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.game-font {
+    font-family: 'Press Start 2P', cursive;
+    letter-spacing: 1px;
+}
+
+
+.main-header {
+    background: linear-gradient(135deg, var(--dark-color) 0%, var(--primary-color) 100%);
+    padding: 1.5rem 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1000;
+}
+
+.logo {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.8rem;
+    color: var(--secondary-color);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    display: inline-flex;
+    align-items: center;
+}
+
+.logo i {
+    margin-right: 10px;
+    color: var(--secondary-color);
+}
+
+
+.recovery-container {
+    max-width: 500px;
+    margin: 3rem auto;
+    padding: 2.5rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.recovery-title {
+    color: var(--dark-color);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    position: relative;
+}
+
+.recovery-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--secondary-color);
+    border-radius: 3px;
+}
+
+.form-control {
+    border-radius: 8px;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(42, 117, 187, 0.25);
+}
+
+.btn-submit {
+    background-color: var(--primary-color);
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #1a5a9a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-back {
+    background-color: var(--dark-color);
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+    background-color: #0f0f1f;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.form-text {
+    color: #6c757d;
+    font-size: 0.875rem;
+}
+
+.error {
+    color: var(--accent-color);
+    font-size: 0.875em;
+    margin-top: 0.25rem;
+    display: block;
+}
+
+
+.main-footer {
+    background: linear-gradient(135deg, var(--dark-color) 0%, var(--primary-color) 100%);
+    color: white;
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+
+.footer-text {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+
+@media (max-width: 768px) {
+    .logo {
+        font-size: 1.5rem;
+    }
+    
+    .recovery-container {
+        margin: 2rem auto;
+        padding: 1.5rem;
+    }
+}

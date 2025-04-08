@@ -1,0 +1,216 @@
+:root {
+    --primary-color: #8B0000;  /* Rojo oscuro */
+    --secondary-color: #C0C0C0; /* Plateado */
+    --dark-color: #1A1A1A;     /* Negro intenso */
+    --accent-color: #E63946;   /* Rojo sangre */
+    --success-color: #2A9D8F;  /* Verde esmeralda */
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #121212;
+    color: #E0E0E0;
+}
+
+.game-font {
+    font-family: 'Press Start 2P', cursive;
+    letter-spacing: 1px;
+}
+
+.main-header {
+    background: linear-gradient(135deg, var(--dark-color) 0%, var(--primary-color) 100%);
+    padding: 1rem 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1000;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.logo {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.8rem;
+    color: var(--accent-color);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    display: inline-flex;
+    align-items: center;
+}
+
+.logo i {
+    margin-right: 10px;
+    color: var(--secondary-color);
+}
+
+.auth-buttons {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.btn-login {
+    background-color: var(--accent-color);
+    border: none;
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.btn-login:hover {
+    background-color: #8B0000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.game-detail-container {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 15px;
+}
+
+.game-detail-card {
+    background: #1E1E1E;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 30px rgba(139, 0, 0, 0.3);
+    border: 1px solid var(--accent-color);
+}
+
+.game-media {
+    position: relative;
+    overflow: hidden;
+    height: 400px;
+}
+
+.game-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.game-media:hover img {
+    transform: scale(1.05);
+}
+
+.game-info {
+    padding: 2rem;
+}
+
+.game-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.game-price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--success-color);
+    margin: 1.5rem 0;
+}
+
+.game-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #C0C0C0;
+    margin-bottom: 2rem;
+}
+
+.game-actions {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-add-to-cart {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn-add-to-cart:hover {
+    background-color: #8B0000;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(139, 0, 0, 0.4);
+}
+
+.btn-back {
+    background: var(--dark-color);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--accent-color);
+}
+
+.btn-back:hover {
+    background: #2A2A2A;
+    transform: translateX(-5px);
+    color: var(--accent-color);
+}
+
+.login-prompt {
+    background-color: #2A2A2A;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    border-left: 4px solid var(--accent-color);
+    color: var(--secondary-color);
+}
+
+.main-footer {
+    background: linear-gradient(135deg, var(--dark-color) 0%, var(--primary-color) 100%);
+    color: white;
+    padding: 2rem 0;
+    margin-top: 3rem;
+    border-top: 2px solid var(--accent-color);
+}
+
+.footer-text {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 992px) {
+    .game-media {
+        height: 350px;
+    }
+    
+    .game-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo {
+        font-size: 1.5rem;
+    }
+    
+    .auth-buttons {
+        position: static;
+        margin-top: 1rem;
+    }
+    
+    .game-media {
+        height: 300px;
+    }
+    
+    .game-title {
+        font-size: 1.8rem;
+    }
+    
+    .game-price {
+        font-size: 1.8rem;
+    }
+}

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil - GameZone</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- jQuery y validación -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+    
+    <link rel="stylesheet" href="css/perfil.css">
+
+</head>
+<body>
+    
+    <header class="main-header">
+        <div class="container text-center">
+            <div class="logo game-font">
+                <i class="fas fa-gamepad"></i>
+                <strong>GameZone</strong>
+            </div>
+        </div>
+    </header>
+
+   
+    <div class="container">
+        <div class="profile-container">
+            <div class="profile-header">
+                <img src="C:\DUOC\Programación WEB\Video Juegos\img\persona.png" alt="Foto de perfil" class="profile-pic">
+                <h2 class="profile-title">MI PERFIL</h2>
+            </div>
+            
+            <form id="profileForm">
+                <div class="row mb-3">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                        <label for="firstName" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="firstName" name="firstName" value="León">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="lastName" class="form-label">Apellido</label>
+                        <input type="text" class="form-control" id="lastName" name="lastName" value="Mira">
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="username" class="form-label">Nombre de Usuario</label>
+                    <input type="text" class="form-control" id="username" name="username" value="Leon.Mira">
+                </div>
+                
+                <div class="mb-3">
+                    <label for="email" class="form-label">Correo Electrónico</label>
+                    <input type="email" class="form-control" id="email" name="email" value="leon.mira@gmail.com">
+                </div>
+                
+                <div class="mb-3">
+                    <label for="birthdate" class="form-label">Fecha de Nacimiento</label>
+                    <input type="date" class="form-control" id="birthdate" name="birthdate" value="1990-01-01">
+                </div>
+                
+                <div class="mb-3">
+                    <label for="address" class="form-label">Dirección</label>
+                    <textarea class="form-control" id="address" name="address" rows="3">Alvear 7559, Santiago</textarea>
+                </div>
+                
+                <div class="mb-4">
+                    <label class="form-label">Cambiar Contraseña</label>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Nueva contraseña">
+                            <small class="form-text">Mínimo 6 caracteres, al menos una mayúscula y un número</small>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirmar nueva contraseña">
+                        </div>
+                    </div>
+                    <small class="form-text text-muted">Dejar en blanco si no deseas cambiar la contraseña</small>
+                </div>
+                
+                <div class="d-flex justify-content-between flex-wrap gap-3">
+                    <a href="index.html" class="btn btn-back text-white flex-grow-1">VOLVER</a>
+                    <div class="d-flex flex-wrap flex-grow-1 gap-3">
+                        <button type="button" class="btn btn-delete text-white flex-grow-1">DESACTIVAR CUENTA</button>
+                        <button type="submit" class="btn btn-save text-white flex-grow-1">GUARDAR CAMBIOS</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer text-center">
+        <div class="container">
+            <p class="footer-text">&copy; 2025 GameZone - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Configuración de validación
+            $.validator.setDefaults({
+                errorClass: 'is-invalid',
+                validClass: 'is-valid',
+                errorElement: 'div',
+                errorPlacement: function(error, element) {
+                    error.addClass('error');
+                    element.closest('.mb-3').append(error);
+                },
+                highlight: function(element, errorClass, validClass) {
+                    $(element).addClass(errorClass).removeClass(validClass);
+                },
+                unhighlight: function(element, errorClass, validClass) {
+                    $(element).removeClass(errorClass).addClass(validClass);
+                },
+                ignore: ":hidden:not(#password, #confirmPassword)" // Solo validar campos de contraseña
+            });
+
+            $("#profileForm").validate({
+                rules: {
+                    password: {
+                        required: function() {
+                            // Solo requerido si confirmPassword tiene valor
+                            return $("#confirmPassword").val().length > 0;
+                        },
+                        minlength: 6,
+                        maxlength: 18,
+                        pattern: /^(?=.*[A-Z])(?=.*\d).{6,18}$/
+                    },
+                    confirmPassword: {
+                        required: function() {
+                            // Solo requerido si password tiene valor
+                            return $("#password").val().length > 0;
+                        },
+                        equalTo: "#password"
+                    }
+                },
+                messages: {
+                    password: {
+                        required: "Por favor, ingresa una nueva contraseña.",
+                        minlength: "La contraseña debe tener al menos 6 caracteres.",
+                        maxlength: "La contraseña no puede exceder los 18 caracteres.",
+                        pattern: "Debe contener al menos una mayúscula y un número."
+                    },
+                    confirmPassword: {
+                        required: "Por favor, confirma tu nueva contraseña.",
+                        equalTo: "Las contraseñas no coinciden."
+                    }
+                },
+                submitHandler: function(form) {
+                    // Solo muestra alerta si se cambió la contraseña
+                    if ($("#password").val() || $("#confirmPassword").val()) {
+                        alert('Contraseña actualizada correctamente!');
+                    }
+                    form.submit();
+                }
+            });
+
+            // Validación condicional: solo si algún campo de contraseña tiene valor
+            $("#password, #confirmPassword").on('blur', function() {
+                if ($("#password").val() || $("#confirmPassword").val()) {
+                    $(this).valid();
+                } else {
+                    // Limpiar validación si ambos están vacíos
+                    $(this).removeClass('is-invalid is-valid');
+                    $(this).siblings('.error').remove();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
