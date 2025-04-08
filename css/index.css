@@ -63,7 +63,7 @@ body {
 
 
 .hero-section {
-  background: url('C:/DUOC/Programación WEB/Video Juegos/img/gamer.jpg') no-repeat center center;
+  background: url('../img/gamer.jpg') no-repeat center center;
   background-size: cover;
   height: 400px;
   position: relative;
