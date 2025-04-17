@@ -7,8 +7,23 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f8f9fa;
-    color: #333;
+    background-color: #555454;
+    color: #252A34;
+    background-image: url('../img/Juegos_MundoAbierto.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(231, 229, 229, 0.692);
+
 }
 
 .game-font {

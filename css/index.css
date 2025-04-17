@@ -64,7 +64,7 @@ body {
 
 .hero-section {
   background: url('../img/gamer.jpg') no-repeat center center;
-  background-size: cover;
+  background-size: cover; 
   height: 400px;
   position: relative;
   display: flex;
